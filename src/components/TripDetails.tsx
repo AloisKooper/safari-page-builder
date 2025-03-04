@@ -1,3 +1,4 @@
+
 import { useState } from "react"
 import { Bed, Car, Clock, Users, Calendar, DollarSign, MapPin, Check } from "lucide-react"
 
@@ -40,7 +41,7 @@ export function TripDetails({ details }: TripDetailsProps) {
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
             Safari Experience
           </span>
-          <h2 className="text-5xl font-display font-bold text-safari-800 mb-6">
+          <h2 className="text-5xl font-display font-bold text-black mb-6">
             Trip Details
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
@@ -56,24 +57,24 @@ export function TripDetails({ details }: TripDetailsProps) {
                 <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors">
                   {getIcon(detail.icon)}
                 </div>
-                <h3 className="text-xl font-display font-bold text-safari-800 mb-4 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-display font-bold text-black mb-4 group-hover:text-primary transition-colors">
                   {detail.title}
                 </h3>
-                <p className="text-safari-600">{detail.description}</p>
+                <p className="text-gray-800">{detail.description}</p>
               </div>
             </div>
           ))}
           
           {/* Price Card */}
-          <div className="bg-gradient-to-br from-primary/90 to-primary rounded-2xl text-white hover:shadow-xl transition-all duration-300 border border-primary/20 overflow-hidden">
+          <div className="bg-gradient-to-br from-primary/90 to-primary rounded-2xl text-black hover:shadow-xl transition-all duration-300 border border-primary/20 overflow-hidden">
             <div className="p-8">
               <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-white/10 rounded-full">
-                <DollarSign className="h-6 w-6 text-white" />
+                <DollarSign className="h-6 w-6 text-black" />
               </div>
-              <h3 className="text-xl font-display font-bold text-white mb-4">
+              <h3 className="text-xl font-display font-bold text-black mb-4">
                 From $2,499 per person
               </h3>
-              <p className="text-white/90 mb-6">
+              <p className="text-black mb-6">
                 All-inclusive package with luxury accommodations, expert guides, and unforgettable experiences
               </p>
               <button className="mt-2 py-3 px-6 bg-white text-primary font-medium rounded-lg hover:bg-white/90 transition-colors w-full">
@@ -108,7 +109,7 @@ export function TripDetails({ details }: TripDetailsProps) {
           </div>
           
           <div className="lg:col-span-2 space-y-6">
-            <h3 className="text-3xl font-display font-bold text-safari-800 mb-6">
+            <h3 className="text-3xl font-display font-bold text-black mb-6">
               Safari Highlights
             </h3>
             <div className="space-y-4">
@@ -117,8 +118,8 @@ export function TripDetails({ details }: TripDetailsProps) {
                   <Check className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-safari-800 mb-1">Expert Naturalist Guides</h4>
-                  <p className="text-safari-600">Knowledgeable guides with years of experience in tracking wildlife</p>
+                  <h4 className="text-lg font-semibold text-black mb-1">Expert Naturalist Guides</h4>
+                  <p className="text-gray-800">Knowledgeable guides with years of experience in tracking wildlife</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -126,8 +127,8 @@ export function TripDetails({ details }: TripDetailsProps) {
                   <Check className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-safari-800 mb-1">Premium Safari Vehicles</h4>
-                  <p className="text-safari-600">Custom 4x4 vehicles with popup roofs for unobstructed wildlife viewing</p>
+                  <h4 className="text-lg font-semibold text-black mb-1">Premium Safari Vehicles</h4>
+                  <p className="text-gray-800">Custom 4x4 vehicles with popup roofs for unobstructed wildlife viewing</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -135,8 +136,8 @@ export function TripDetails({ details }: TripDetailsProps) {
                   <Check className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-safari-800 mb-1">Luxury Accommodations</h4>
-                  <p className="text-safari-600">Stay in exclusive lodges and tented camps with stunning views</p>
+                  <h4 className="text-lg font-semibold text-black mb-1">Luxury Accommodations</h4>
+                  <p className="text-gray-800">Stay in exclusive lodges and tented camps with stunning views</p>
                 </div>
               </div>
             </div>

@@ -1,3 +1,4 @@
+
 import { MapPin, Phone, Calendar, Star } from "lucide-react"
 import { useState, useEffect } from "react"
 
@@ -18,11 +19,11 @@ export function TourHeader({ tourName, location, description, imageSrc }: TourHe
   }, [imageSrc])
 
   return (
-    <section className="relative w-full h-[80vh]">
+    <section className="relative w-full h-[60vh]">
       {/* Hero content */}
-      <div className="relative z-20 max-w-7xl mx-auto h-full flex flex-col md:flex-row items-center px-4 sm:px-6 lg:px-8">
+      <div className="relative z-20 w-full h-full flex flex-col md:flex-row items-center">
         {/* Left column content */}
-        <div className="w-full md:w-1/2 bg-safari-900 text-white flex flex-col justify-center h-full py-20 px-8">
+        <div className="w-full md:w-1/2 bg-safari-900 text-white flex flex-col justify-center h-full py-16 px-8">
           <div className="animate-fade-up animation-delay-100">
             <div className="flex items-center gap-2 mb-6">
               <div className="flex items-center gap-1">

@@ -19,7 +19,7 @@ export function QASection({ faqs }: QASectionProps) {
   
   return (
     <div className="bg-white p-6 rounded-lg safari-shadow">
-      <h3 className="text-2xl font-display font-bold mb-6 text-safari-800">Frequently Asked Questions</h3>
+      <h3 className="text-2xl font-display font-bold mb-6 text-black">Frequently Asked Questions</h3>
       
       <div className="space-y-4">
         {faqs.map((faq, index) => (
@@ -31,7 +31,7 @@ export function QASection({ faqs }: QASectionProps) {
               onClick={() => toggleQuestion(index)}
               className="w-full flex items-center justify-between p-4 text-left hover:bg-safari-50 transition-colors"
             >
-              <span className="font-medium text-safari-800">{faq.question}</span>
+              <span className="font-medium text-black">{faq.question}</span>
               {openIndex === index ? 
                 <ChevronUp className="h-5 w-5 text-safari-500" /> : 
                 <ChevronDown className="h-5 w-5 text-safari-500" />
@@ -43,7 +43,7 @@ export function QASection({ faqs }: QASectionProps) {
                 openIndex === index ? 'max-h-40' : 'max-h-0'
               }`}
             >
-              <div className="p-4 pt-0 text-safari-600 bg-safari-50">
+              <div className="p-4 pt-0 text-gray-800 bg-safari-50">
                 {faq.answer}
               </div>
             </div>

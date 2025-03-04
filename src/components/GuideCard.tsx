@@ -31,8 +31,8 @@ export function GuideCard({ name, imageSrc }: GuideCardProps) {
             <User className="h-10 w-10 text-safari-400" />
           </div>
         </div>
-        <h3 className="text-2xl font-display font-bold text-safari-800 mb-1">{name}</h3>
-        <p className="text-safari-600 text-sm mb-2">Expert Safari Guide</p>
+        <h3 className="text-2xl font-display font-bold text-black mb-1">{name}</h3>
+        <p className="text-gray-800 text-sm mb-2">Expert Safari Guide</p>
         <div className="flex items-center gap-1">
           {[1, 2, 3, 4, 5].map((star) => (
             <Star key={star} className="h-4 w-4 fill-primary text-primary" />
@@ -40,7 +40,7 @@ export function GuideCard({ name, imageSrc }: GuideCardProps) {
         </div>
       </div>
       
-      <p className="text-safari-600 text-center mb-6 italic">
+      <p className="text-gray-800 text-center mb-6 italic">
         "With over 15 years of experience guiding safaris in Namibia, I'm excited to share my knowledge and passion for wildlife conservation with you."
       </p>
       
