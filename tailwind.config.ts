@@ -1,4 +1,6 @@
+
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
 	darkMode: ["class"],
@@ -24,6 +26,19 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				safari: {
+					50: '#f7f8f7',
+					100: '#eef0ee',
+					200: '#d9ded9',
+					300: '#b8c2b7',
+					400: '#93a291',
+					500: '#738571',
+					600: '#5c6c5a',
+					700: '#4a564a',
+					800: '#404740',
+					900: '#373c37',
+					950: '#1e201e',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -68,6 +83,10 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			fontFamily: {
+				sans: ["Inter var", ...fontFamily.sans],
+				display: ["Playfair Display", ...fontFamily.serif],
+			},
 			keyframes: {
 				'accordion-down': {
 					from: {
@@ -84,11 +103,26 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
+				},
+				'fade-up': {
+					'0%': { opacity: '0', transform: 'translateY(20px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'image-reveal': {
+					'0%': { transform: 'scale(1.05)', opacity: '0' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.8s ease-out forwards',
+				'fade-up': 'fade-up 0.8s ease-out forwards',
+				'image-reveal': 'image-reveal 1.2s ease-out forwards'
 			}
 		}
 	},
