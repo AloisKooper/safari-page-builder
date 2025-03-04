@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react"
 import TourHeader from "@/components/TourHeader"
 import TripDetails from "@/components/TripDetails"
@@ -6,6 +7,7 @@ import ChecklistSection from "@/components/ChecklistSection"
 import TabContent from "@/components/TabContent"
 import GuideCard from "@/components/GuideCard"
 import QASection from "@/components/QASection"
+import GoogleMap from "@/components/GoogleMap"
 
 const Index = () => {
   const [isReady, setIsReady] = useState(false)
@@ -20,7 +22,7 @@ const Index = () => {
     name: "Namibian Wildlife Safari",
     location: "Etosha National Park, Namibia",
     description: "Experience the breathtaking wildlife and stunning landscapes of Namibia on this guided safari adventure with expert naturalist guides.",
-    heroImage: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&q=80&w=1920",
+    heroImage: "https://images.unsplash.com/photo-1547970810-dc1eac37d174?auto=format&fit=crop&q=80&w=1920",
     details: [
       {
         icon: "car" as const,
@@ -41,6 +43,11 @@ const Index = () => {
         icon: "clock" as const,
         title: "Duration",
         description: "7 days / 6 nights of unforgettable safari adventure"
+      },
+      {
+        icon: "calendar" as const, 
+        title: "Best Time to Visit",
+        description: "Dry season (May-October) offers the best wildlife viewing conditions"
       }
     ],
     guide: {
@@ -84,6 +91,11 @@ const Index = () => {
       "Alcoholic beverages",
       "Any activities not specified in the itinerary"
     ],
+    mapLocation: {
+      lat: -19.3456,
+      lng: 16.5279,
+      name: "Etosha National Park, Namibia"
+    },
     tourRoute: [
       {
         day: "Day 1: Arrival in Windhoek",
@@ -163,22 +175,22 @@ const Index = () => {
       {/* Trip Details Section */}
       <TripDetails details={tourData.details} />
       
-      {/* Booking Section with Two Columns */}
-      <div className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-8">
-            {/* Left column - narrow (30%) */}
-            <div className="w-full md:w-1/3 space-y-8">
+      {/* Content Section */}
+      <div className="py-24 bg-safari-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {/* Left column - narrow */}
+            <div className="lg:col-span-1 space-y-8">
               {/* Booking Form */}
-              <div className="bg-white p-6 rounded-lg safari-shadow">
+              <div className="bg-white p-8 rounded-2xl shadow-lg sticky top-8">
                 <h3 className="text-2xl font-display font-bold mb-6 text-safari-800">Book Your Safari</h3>
                 
-                <form className="space-y-4">
+                <form className="space-y-5">
                   <div className="space-y-2">
                     <label className="text-safari-700 font-medium block">Full Name</label>
                     <input
                       type="text"
-                      className="w-full p-3 border border-safari-200 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+                      className="w-full p-4 border border-safari-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
                       placeholder="Your full name"
                     />
                   </div>
@@ -187,7 +199,7 @@ const Index = () => {
                     <label className="text-safari-700 font-medium block">Email Address</label>
                     <input
                       type="email"
-                      className="w-full p-3 border border-safari-200 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+                      className="w-full p-4 border border-safari-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -196,13 +208,26 @@ const Index = () => {
                     <label className="text-safari-700 font-medium block">Preferred Tour Date</label>
                     <input
                       type="date"
-                      className="w-full p-3 border border-safari-200 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+                      className="w-full p-4 border border-safari-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
                     />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label className="text-safari-700 font-medium block">Number of Guests</label>
+                    <select
+                      className="w-full p-4 border border-safari-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+                    >
+                      <option value="1">1 Person</option>
+                      <option value="2">2 People</option>
+                      <option value="3">3 People</option>
+                      <option value="4">4 People</option>
+                      <option value="5+">5+ People</option>
+                    </select>
                   </div>
                   
                   <button 
                     type="submit" 
-                    className="w-full bg-primary text-white py-3 rounded-md hover:bg-primary/90 transition-all shadow-md hover:shadow-lg mt-4"
+                    className="w-full bg-primary text-white py-4 rounded-lg hover:bg-primary/90 transition-all shadow-md hover:shadow-lg mt-4 font-medium text-lg"
                   >
                     Request Booking
                   </button>
@@ -219,22 +244,46 @@ const Index = () => {
               <QASection faqs={tourData.faqs} />
             </div>
             
-            {/* Right column - wide (70%) */}
-            <div className="w-full md:w-2/3">
+            {/* Right column - wide */}
+            <div className="lg:col-span-2">
               <ChecklistSection 
                 imageSrc={tourData.safariImage}
                 included={tourData.included}
                 excluded={tourData.excluded}
               />
+              
+              {/* Tab Content */}
+              <div className="mt-12">
+                <TabContent 
+                  tourRoute={tourData.tourRoute}
+                  itinerary={tourData.itinerary}
+                  accommodation={tourData.accommodation}
+                />
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+      
+      {/* Google Maps Section */}
+      <div className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              Tour Location
+            </span>
+            <h2 className="text-4xl font-display font-bold text-safari-800 mb-6">
+              Explore Our Safari Route
+            </h2>
+            <p className="max-w-3xl mx-auto text-safari-600 text-lg">
+              Our safari tour takes you through some of Namibia's most spectacular landscapes and wildlife-rich areas, 
+              from the iconic Etosha National Park to the stunning Damaraland region.
+            </p>
+          </div>
           
-          {/* Tab Content - Below Both Columns */}
-          <TabContent 
-            tourRoute={tourData.tourRoute}
-            itinerary={tourData.itinerary}
-            accommodation={tourData.accommodation}
-          />
+          <div className="h-[600px] rounded-2xl overflow-hidden shadow-xl border border-safari-100">
+            <GoogleMap location={tourData.mapLocation} />
+          </div>
         </div>
       </div>
     </div>
