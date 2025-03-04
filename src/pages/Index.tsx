@@ -1,10 +1,11 @@
-
 import { useState, useEffect } from "react"
 import TourHeader from "@/components/TourHeader"
 import TripDetails from "@/components/TripDetails"
 import BookingSection from "@/components/BookingSection"
 import ChecklistSection from "@/components/ChecklistSection"
 import TabContent from "@/components/TabContent"
+import GuideCard from "@/components/GuideCard"
+import QASection from "@/components/QASection"
 
 const Index = () => {
   const [isReady, setIsReady] = useState(false)
@@ -22,22 +23,22 @@ const Index = () => {
     heroImage: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&q=80&w=1920",
     details: [
       {
-        icon: "car",
+        icon: "car" as const,
         title: "Transportation",
         description: "Comfortable 4x4 safari vehicles with experienced drivers throughout the tour"
       },
       {
-        icon: "bed",
+        icon: "bed" as const,
         title: "Accommodation",
         description: "Stay in luxury safari lodges and tented camps with stunning views"
       },
       {
-        icon: "users",
+        icon: "users" as const,
         title: "Group Size",
         description: "Small groups of 4-8 people for a more personalized experience"
       },
       {
-        icon: "clock",
+        icon: "clock" as const,
         title: "Duration",
         description: "7 days / 6 nights of unforgettable safari adventure"
       }
@@ -209,42 +210,13 @@ const Index = () => {
               </div>
               
               {/* Guide Card */}
-              <div className="bg-white p-6 rounded-lg safari-shadow hover:shadow-md transition-all">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 rounded-full overflow-hidden">
-                    <img 
-                      src={tourData.guide.imageSrc} 
-                      alt={tourData.guide.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-display font-bold text-safari-800">{tourData.guide.name}</h3>
-                    <p className="text-safari-600 text-sm">Safari Guide</p>
-                  </div>
-                </div>
-                
-                <button className="w-full px-4 py-2 border border-primary text-primary rounded-md hover:bg-primary hover:text-white transition-all">
-                  Read about your guide
-                </button>
-              </div>
+              <GuideCard
+                name={tourData.guide.name}
+                imageSrc={tourData.guide.imageSrc}
+              />
               
               {/* Q&A Section */}
-              <div className="bg-white p-6 rounded-lg safari-shadow">
-                <h3 className="text-2xl font-display font-bold mb-6 text-safari-800">Frequently Asked Questions</h3>
-                
-                <div className="space-y-4">
-                  {tourData.faqs.map((faq, index) => (
-                    <div 
-                      key={index} 
-                      className="border border-safari-200 rounded-lg p-4"
-                    >
-                      <h4 className="font-medium text-safari-800 mb-2">{faq.question}</h4>
-                      <p className="text-safari-600">{faq.answer}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <QASection faqs={tourData.faqs} />
             </div>
             
             {/* Right column - wide (70%) */}

@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { Bed, Car, Clock, Users, Calendar, DollarSign } from "lucide-react"
 
-interface DetailItem {
+export interface DetailItem {
   icon: "bed" | "car" | "clock" | "users" | "calendar" | "dollar"
   title: string
   description: string
@@ -13,7 +13,7 @@ interface TripDetailsProps {
 }
 
 export function TripDetails({ details }: TripDetailsProps) {
-  const getIcon = (iconName: string) => {
+  const getIcon = (iconName: DetailItem["icon"]) => {
     switch (iconName) {
       case "bed":
         return <Bed className="h-6 w-6 text-primary" />
