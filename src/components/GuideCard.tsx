@@ -44,7 +44,7 @@ export function GuideCard({ name, imageSrc }: GuideCardProps) {
         "With over 15 years of experience guiding safaris in Namibia, I'm excited to share my knowledge and passion for wildlife conservation with you."
       </p>
       
-      <button className="w-full px-4 py-3 bg-white border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-all font-medium">
+      <button className="w-full px-4 py-3 bg-white border-2 border-primary text-black rounded-lg hover:bg-primary hover:text-black transition-all font-medium">
         Meet Your Guide
       </button>
     </div>

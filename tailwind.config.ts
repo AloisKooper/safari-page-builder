@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
@@ -41,7 +40,7 @@ export default {
 				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: '#000000'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',

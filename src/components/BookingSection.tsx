@@ -86,7 +86,7 @@ export function BookingSection({ guideName, guideImageSrc, faqs }: BookingSectio
                 
                 <button 
                   type="submit" 
-                  className="w-full bg-primary text-white py-3 rounded-md hover:bg-primary/90 transition-all shadow-md hover:shadow-lg mt-4"
+                  className="w-full bg-primary text-black py-3 rounded-md hover:bg-primary/90 transition-all shadow-md hover:shadow-lg mt-4"
                 >
                   Request Booking
                 </button>

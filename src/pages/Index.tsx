@@ -181,8 +181,8 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Left column - narrow */}
             <div className="lg:col-span-1 space-y-8">
-              {/* Booking Form */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg sticky top-8">
+              {/* Booking Form - removed sticky positioning */}
+              <div className="bg-white p-8 rounded-2xl shadow-lg">
                 <h3 className="text-2xl font-display font-bold mb-6 text-safari-800">Book Your Safari</h3>
                 
                 <form className="space-y-5">
@@ -227,7 +227,7 @@ const Index = () => {
                   
                   <button 
                     type="submit" 
-                    className="w-full bg-primary text-white py-4 rounded-lg hover:bg-primary/90 transition-all shadow-md hover:shadow-lg mt-4 font-medium text-lg"
+                    className="w-full bg-primary text-black py-4 rounded-lg hover:bg-primary/90 transition-all shadow-md hover:shadow-lg mt-4 font-medium text-lg"
                   >
                     Request Booking
                   </button>
